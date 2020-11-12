@@ -1,12 +1,13 @@
 from eventos_db import insertEvent, updateEvent, getEventById, getAllEvents, deleteEvent
 from prettytable import PrettyTable
+import datetime
 
 
 def createNewEvent():
     idUsuarios = input("idUsuario:")
     nombre = input("Nombre:")
     categoria = input("Categoria:")
-    fecha = (input("fechar:"))
+    fecha = (input("fecha:"))
     hora = input("Hora: ")
     descripcion = input("Descripcion: ")
     valorEntrada = float(input("Valor entrada: "))
@@ -94,3 +95,25 @@ def viewEventById(eventId):
         [event["idEventos"], event["idUsuarios"], event["nombre"], event["categoria"], event["fecha"], event["hora"], event["descripcion"], event["valorEntrada"], event["capacidad"], event["disponibilidad"], event["ciudad"], event["pais"], event["direccion"], event["tipo"]]
     )
     print(table)
+
+while True:
+    print("Bienvenido al menu de eventos")
+    opcion = int(input("Inserte '0' para salir, '1' para ingresar un nuevo evento, '2' para actualizar un evento, '3' para remover un evento, '4' para ver todos los eventos o '5' para ver un evento por ID"))
+
+    if opcion == 0:
+        break
+
+    elif opcion == 1:
+        createNewEvent()
+    
+    elif opcion == 2:
+        modifyEvent()
+
+    elif opcion == 3:
+        removeEvent()
+
+    elif opcion == 4:
+        viewAllEvents()
+
+    elif opcion == 5:
+        viewEventById()
